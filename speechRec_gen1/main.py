@@ -2,6 +2,7 @@
 import speech_recognition as sr
 import pyttsx3
 import pygame
+import responseEngine_gen1.response_engine
 
 # setup a recognizer instance
 
@@ -44,3 +45,6 @@ while(1):
         pygame.mixer.init(44100)
         pygame.mixer.music.load("speechRec_gen1\ping.mp3") # type: ignore
         pygame.mixer.music.play()
+        if "exit" or "quit" in Processor():
+            exit()
+            
