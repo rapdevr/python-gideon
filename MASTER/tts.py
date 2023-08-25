@@ -34,9 +34,14 @@ def Speak(text, num):
             for chunk in response.iter_content(chunk_size=CHUNK_SIZE):
                 if chunk:
                     f.write(chunk)
-        pygame.mixer.init(44100)
-        sound = pygame.mixer.Sound('all/sounds/output.mp3')
-        sound.play()
+        mixer = pygame.mixer
+
+        mixer.init(44100)
+        output = mixer.Sound('all\sounds\output.mp3') # type: ignore
+        channel = output.play()
+        while channel.get_busy():
+            pygame.time.wait(100)
+            return True
     elif num == 0:
         if sound:
             sound.stop()
@@ -44,7 +49,11 @@ def Speak(text, num):
         print("expected type identifier value")
 
 def Processing():
-    pygame.mixer.init(44100)
-    sound = pygame.mixer.Sound('all/sounds/complete.mp3')
-    sound.play()
-    pygame.event.wait()
+    mixer = pygame.mixer
+
+    mixer.init(44100)
+    ping = mixer.Sound('all\sounds\working.mp3') # type: ignore
+    channel = ping.play()
+    while channel.get_busy():
+        pygame.time.wait(100)
+        return True

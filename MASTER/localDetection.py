@@ -22,10 +22,14 @@ def WakeListener():
             keyword_index = porcupine.process(recorder.read())
             if keyword_index >= 0:
                 print('heard wake word.')
-                pygame.mixer.init(44100)
-                sound = pygame.mixer.Sound('all\sounds\ping.mp3') # type: ignore
-                sound.play()
-                return True
+                mixer = pygame.mixer
+
+                mixer.init(44100)
+                ping = mixer.Sound('all\sounds\ping.mp3') # type: ignore
+                channel = ping.play()
+                while channel.get_busy():
+                    pygame.time.wait(100)
+                    return True
     finally:
         porcupine.delete()
         recorder.delete()

@@ -3,9 +3,9 @@ import os
 import requests
 
 # Set the Bard API key in the environment variable
-os.environ['_BARD_API_KEY'] = 'ZwgwxScRR8pBCI2mrLFZhkNCRFHAA7YtkBjT3kpeKsqH7F9Im95Xm2yvBU3LUDTfncC_xQ.'
-os.environ['_BARD_API_KEYTS'] = 'sidts-CjIBSAxbGR2iC5nE_6honG0-511heM5mI1Gcnd4L6-bUxE0suOrFEYEOIKomGSbsaqq_ixAA'
-os.environ['_BARD_API_KEYCC'] = 'APoG2W8iuefrCkyXymYbW5hVkNdIe0wJHEkIUNpNyw7suxcbjOacx5Vh9XBEGsI7UoZ2NhwEK1s'
+os.environ['_BARD_API_KEY'] = 'aQj8RtlnmmwAdMClTzJLxqlIOy8qnl6gIHqQYMWZRKCY6km31dzhE7y9YCOeEpsvMHBvDQ.'
+os.environ['_BARD_API_KEYTS'] = 'sidts-CjEBSAxbGXkskQw_wLh-P4ULhpZqRxZItpCQKttZq3vThrMWdFah22xd7Wb84toIaLqAEAA'
+os.environ['_BARD_API_KEYCC'] = 'APoG2W8a0Z_v1q6XH3sj_ZMpvEY3TVeoyl1d3gOCpxlBUYjLGb-pPUbKsfm3KiNNN80gvyIf'
 
 # Create a session object using the requests library
 session = requests.Session()
@@ -28,7 +28,7 @@ session.cookies.set("__Secure-1PSIDCC", os.getenv("_BARD_API_KEYCC"))
 bard = Bard(session=session, timeout=30)
 
 def request(text):
-    input_text = f"as simply as possible and without using any formatting, {text}"
+    input_text = f"as simply as possible and without using any formatting or special characters, {text}"
 
     # Send an API request and get a response
     response = bard.get_answer(input_text)['content']

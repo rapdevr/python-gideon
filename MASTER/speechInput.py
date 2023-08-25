@@ -25,5 +25,4 @@ def Processor():
         return False
     # error handling if audio packet has unintelligible audio
     except sr.UnknownValueError:
-        print("Unknown error occured...")
         return False

@@ -3,10 +3,13 @@ environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 import pygame
 import pvporcupine
 from pvrecorder import PvRecorder
+import time
 
 ACCESS_KEY = '6oaIXs0zF7dKyrOLvEN10umgya4a1LRcJKXLy+CZfIpR0A8jpyLEpg=='
 KEYWORD_1 = 'all\wake_words\Gideon_en_windows_v2_2_0.ppn'# type: ignore
 KEYWORD_2 = 'all\wake_words\Hey-Gideon_en_windows_v2_2_0.ppn' # type: ignore
+
+sound = None
 
 def WakeListener():
     porcupine = pvporcupine.create(access_key=ACCESS_KEY, keyword_paths=[KEYWORD_1, KEYWORD_2])
@@ -20,7 +23,7 @@ def WakeListener():
             if keyword_index >= 0:
                 print('heard wake word.')
                 pygame.mixer.init(44100)
-                sound = pygame.mixer.Sound('all\ping.mp3') # type: ignore
+                sound = pygame.mixer.Sound('all\sounds\ping.mp3') # type: ignore
                 sound.play()
                 return True
     finally:

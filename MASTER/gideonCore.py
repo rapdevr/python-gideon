@@ -2,11 +2,12 @@ import bardEngine
 from localDetection import WakeListener
 import speechInput
 from spotifyHandler import Play
-import tts
 import asyncio
+import tts
+
 
 async def main():
-    while True:
+     while True:
         # listen for the wake word
         if WakeListener() is True:
             # pause active audio
@@ -19,6 +20,8 @@ async def main():
             elif inputText == "False":
                 print("I'm sorry, an error has occured!")
                 tts.Speak("I'm sorry, an error has occured!",1)
+            #elif "pause" or "resume" in inputText:
+                #Play("", 'pause')
             elif "play" in inputText:
                 if "song " in inputText:
                     if "by" in inputText:
@@ -48,23 +51,6 @@ async def main():
                 response = bardEngine.request(inputText)
                 tts.Speak(response, 1)
                 inputText = None
-                # start the timer
-                input_text = None
-
-                async def input_checker():
-                    nonlocal input_text
-                    await asyncio.sleep(5)  # Wait for 5 seconds
-                    if input_text is not None:
-                        response = bardEngine.request(input_text)
-                        tts.Speak(response,1)
-
-                input_task = asyncio.create_task(input_checker())
-
-                # listen for query
-                input_text = str(speechInput.Processor())
-
-                # Cancel the input_checker task if input is received before 5 seconds
-                input_task.cancel()
 
 if __name__ == "__main__":
     asyncio.run(main())

@@ -20,5 +20,9 @@ def Play(text, type):
         for key in ['enter', 'tab', 'enter', 'enter']:
             time.sleep(1)
             pyautogui.press(key)
+    elif type == "pause":
+        Open()
+        time.sleep(0.5)
+        pyautogui.press('space')
     pyautogui.hotkey('alt', 'tab')
 

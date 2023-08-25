@@ -3,9 +3,9 @@ import os
 import requests
 
 # Set the Bard API key in the environment variable
-os.environ['_BARD_API_KEY'] = 'YwgwxdYMcKFTHGTiIOAEUAJZv9ZwYnA7QbizF4gn1y8-_3Lf8H3zdgnzJqIf_79ztrGQBg.'
-os.environ['_BARD_API_KEYTS'] = 'sidts-CjIBSAxbGYWAPq49LI0DzrwnZrL5TKjSCfdT4PzJ5g1EuEOCOZG66M8Hl_gnGff8yaiRzBAA'
-os.environ['_BARD_API_KEYCC'] = 'APoG2W_0WMEN_QOmIHPD5BwJgvIAvE_4uMkOBHpLLjV6Au91GPEe8g1cXUuZY8tks6Arq_LvJQQ'
+os.environ['_BARD_API_KEY'] = 'ZwgwxScRR8pBCI2mrLFZhkNCRFHAA7YtkBjT3kpeKsqH7F9Im95Xm2yvBU3LUDTfncC_xQ.'
+os.environ['_BARD_API_KEYTS'] = 'sidts-CjIBSAxbGR2iC5nE_6honG0-511heM5mI1Gcnd4L6-bUxE0suOrFEYEOIKomGSbsaqq_ixAA'
+os.environ['_BARD_API_KEYCC'] = 'APoG2W8iuefrCkyXymYbW5hVkNdIe0wJHEkIUNpNyw7suxcbjOacx5Vh9XBEGsI7UoZ2NhwEK1s'
 
 # Create a session object using the requests library
 session = requests.Session()
